@@ -30,7 +30,13 @@ h1 {
 .subheader {
     font-size: 36px
 }
-button {}
+button {
+    background-color: #05c7cf;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 24px;
+}
 
 a {
     color: black;
