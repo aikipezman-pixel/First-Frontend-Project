@@ -65,6 +65,7 @@ li {
 .row {
     width: 100%;
     max-width: 1300px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,7 +92,7 @@ h2 {
     margin-bottom: 24px;
 }
 
-.section__desciption {
+.section__description {
 display: flex;
 justify-content: center;
 align-items: center;
