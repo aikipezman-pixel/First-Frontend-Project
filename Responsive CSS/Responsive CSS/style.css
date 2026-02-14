@@ -21,7 +21,7 @@ nav {
 
 header {
   background-color: #EADCFF;
-  min-height: calc(100vh - 70px);
+  height: calc(100vh - 70px);
   padding: 20px;
   display: flex;
   align-items: center;
