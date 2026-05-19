@@ -1,0 +1,561 @@
+:root {
+  --black: #0b0c09;
+  --charcoal: #11130f;
+  --moss: #171913;
+  --stone: #242119;
+  --bone: #f1ede9;
+  --mist: #d8cfc4;
+  --ash: #a99d91;
+  --gold: #c7a976;
+  --line: rgba(199, 169, 118, 0.5);
+  --soft-line: rgba(241, 237, 233, 0.16);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--charcoal);
+  color: var(--bone);
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* NAVBAR */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 7.5%;
+  background: #11130f;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(241, 237, 233, 0.08);
+}
+
+.logo {
+  position: absolute;
+  left: 7.5%;
+  top: 50%;
+  transform: translateY(-55%);
+  display: block;
+  width: 260px;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.main-nav a {
+  color: #f1ede9;
+  position: relative;
+  padding-bottom: 0.45rem;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.25s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+/* HERO */
+
+.workshops-hero {
+  min-height: 62vh;
+  display: flex;
+  align-items: center;
+  padding: 7rem 7.5% 4.8rem;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 9, 7, 0.74) 0%,
+      rgba(8, 9, 7, 0.56) 38%,
+      rgba(8, 9, 7, 0.28) 72%,
+      rgba(8, 9, 7, 0.12) 100%
+    ),
+    url("assets/stone-texture-dark.png");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid rgba(241, 237, 233, 0.1);
+}
+
+.hero-inner {
+  max-width: 720px;
+}
+
+.workshops-hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(4.6rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  color: #f5f1eb;
+  margin-bottom: 1.4rem;
+}
+
+.hero-intro {
+  max-width: 520px;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.28;
+  color: var(--gold);
+}
+
+.ornament-line {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: 120px;
+  margin: 0 auto 1rem;
+  color: var(--gold);
+}
+
+.hero-line {
+  margin: 0 0 1.6rem;
+  width: 150px;
+}
+
+.ornament-line::before,
+.ornament-line::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--gold);
+  opacity: 0.75;
+}
+
+.ornament-line span {
+  font-size: 1rem;
+}
+
+/* INTRO */
+
+.workshops-intro-section {
+  background: #11130f;
+  padding: 4.8rem 7.5% 2.2rem;
+}
+
+.workshops-intro-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.workshops-feature-frame {
+  border: 1px solid var(--gold);
+  padding: 0.45rem;
+  background: rgba(199, 169, 118, 0.05);
+}
+
+.workshops-feature-frame img {
+  width: 100%;
+  aspect-ratio: 1.22 / 1;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.06);
+}
+
+.workshops-copy {
+  color: var(--mist);
+}
+
+.workshops-copy p {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  margin-bottom: 1.45rem;
+}
+
+.workshops-copy p:first-child::first-letter {
+  float: left;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 5.4rem;
+  line-height: 0.72;
+  padding-right: 0.55rem;
+  color: var(--gold);
+}
+
+/* FEATURED WORKSHOP */
+
+.featured-workshop-section {
+  background: #11130f;
+  padding: 2.6rem 7.5% 1.8rem;
+}
+
+.featured-workshop-box {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.4rem 2rem 2.2rem;
+  text-align: center;
+  border: 1px solid rgba(199, 169, 118, 0.48);
+  background:
+    linear-gradient(rgba(28, 27, 22, 0.88), rgba(28, 27, 22, 0.92)),
+    url("assets/stone-texture-dark.png");
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 36px rgba(0, 0, 0, 0.48);
+}
+
+.featured-workshop-box::before,
+.featured-workshop-box::after {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  bottom: 0.7rem;
+  width: 1px;
+  background: rgba(199, 169, 118, 0.2);
+}
+
+.featured-workshop-box::before {
+  left: 1rem;
+}
+
+.featured-workshop-box::after {
+  right: 1rem;
+}
+
+.workshop-label,
+.workshop-type {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-size: 0.7rem;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+
+.featured-workshop-box h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--bone);
+  margin-bottom: 0.9rem;
+}
+
+.featured-workshop-box p:not(.workshop-label) {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--mist);
+  line-height: 1.65;
+}
+
+/* WORKSHOP GRID */
+
+.workshop-section {
+  background: #11130f;
+  padding: 1.8rem 7.5% 4.2rem;
+}
+
+.workshop-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+.workshop-card {
+  border: 1px solid rgba(199, 169, 118, 0.48);
+  padding: 2rem 1.6rem;
+  background: rgba(199, 169, 118, 0.035);
+}
+
+.workshop-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--bone);
+  margin-bottom: 1rem;
+}
+
+.workshop-card p:not(.workshop-type) {
+  color: var(--mist);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--bone);
+}
+
+.text-link span {
+  color: var(--gold);
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+
+/* CLOSING SECTION */
+
+.closing-section {
+  background:
+    linear-gradient(rgba(36, 33, 25, 0.78), rgba(15, 15, 12, 0.9)),
+    url("assets/ClosingBackground.png");
+  color: #f5f1eb;
+  background-size: cover;
+  background-position: center;
+  padding: 3.7rem 7.5% 3.2rem;
+  text-align: center;
+  border-top: 1px solid rgba(241, 237, 233, 0.1);
+}
+
+.closing-section h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--bone);
+  margin-bottom: 0.8rem;
+}
+
+.closing-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.4rem;
+}
+
+.button-link {
+  min-width: 185px;
+  padding: 0.95rem 1.35rem;
+  border: 1px solid #f5f1eb;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #f5f1eb;
+  background: transparent;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.button-link:hover {
+  background: var(--bone);
+  color: var(--black);
+}
+
+/* FOOTER */
+
+.site-footer {
+  padding: 1.4rem 7.5%;
+  background: #11130f;
+  text-align: center;
+  color: #f5f1eb;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(241, 237, 233, 0.08);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .site-header {
+    position: relative;
+    height: auto;
+    min-height: 96px;
+    padding: 1rem 6%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.85rem;
+  }
+
+  .logo {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 220px;
+    margin: 0 auto;
+  }
+
+  .main-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.2rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+  }
+
+  .workshops-hero {
+    min-height: 54vh;
+    padding: 4.5rem 6%;
+  }
+
+  .workshops-hero h1 {
+    font-size: clamp(3.8rem, 14vw, 5.8rem);
+  }
+
+  .hero-intro {
+    font-size: 1.35rem;
+  }
+
+  .workshops-intro-section,
+  .featured-workshop-section,
+  .workshop-section,
+  .closing-section,
+  .site-footer {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .workshops-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .workshops-feature-frame {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .featured-workshop-box {
+    padding: 2.25rem 1.5rem;
+  }
+
+  .featured-workshop-box::before,
+  .featured-workshop-box::after {
+    display: none;
+  }
+
+  .workshop-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .closing-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .button-link {
+    width: 100%;
+    max-width: 315px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    min-height: auto;
+    padding: 0.9rem 5%;
+  }
+
+  .logo {
+    width: 190px;
+  }
+
+  .main-nav {
+    gap: 0.65rem 0.95rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+  }
+
+  .workshops-hero {
+    min-height: 50vh;
+    padding: 3.75rem 5%;
+  }
+
+  .workshops-hero h1 {
+    font-size: clamp(3.2rem, 17vw, 4.8rem);
+  }
+
+  .hero-intro {
+    font-size: 1.15rem;
+  }
+
+  .workshops-intro-section,
+  .featured-workshop-section,
+  .workshop-section,
+  .closing-section,
+  .site-footer {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .workshops-copy p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .workshops-copy p:first-child::first-letter {
+    font-size: 3.6rem;
+  }
+
+  .workshop-card {
+    padding: 1.8rem 1.25rem;
+  }
+
+  .workshop-card h3 {
+    font-size: 1.75rem;
+  }
+
+  .text-link,
+  .button-link {
+    font-size: 0.65rem;
+    letter-spacing: 0.24em;
+  }
+
+  .site-footer {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+}
